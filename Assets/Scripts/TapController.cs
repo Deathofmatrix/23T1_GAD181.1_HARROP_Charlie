@@ -8,28 +8,30 @@ namespace CharlieHarrop.BeerTapGame
     public class TapController : MonoBehaviour
     {
         [SerializeField] private Mug mug;
+        [SerializeField] private Mug currentMug;
         [SerializeField] SpriteRenderer beerLine;
         private float tapSpeed = 2.5f;
         [SerializeField] private float fullness = 0;
         [SerializeField] GameObject CurrentBeerTrigger;
+        [SerializeField] MugSpawnerController mugController;
+        
 
-        [SerializeField] private List<Mug> mugList;
-
-        // Update is called once per frame
         private void Update()
         {
+            
             TapActivation();
-            FinishPour();
+            //FinishPour();
         }
 
         private void TapActivation()
         {
             if (Input.GetButton("Jump"))
             {
+                currentMug = mug.GetCurrentMug();
                 beerLine.enabled = true;
                 Debug.Log("Pour Beer");
                 fullness += tapSpeed * Time.deltaTime;
-                mug.SetFullness(fullness);
+                currentMug.SetFullness(3);
                 
             }
             else
@@ -37,14 +39,13 @@ namespace CharlieHarrop.BeerTapGame
                 beerLine.enabled = false;
             }
         }
-        private void FinishPour()
-        {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                Debug.Log("moving");
-                mug.MoveOffscreen();
-            }
-        }
+        //private void FinishPour()
+        //{
+        //    if (Input.GetKeyUp(KeyCode.Space))
+        //    {
+        //        Debug.Log("moving");
+        //    }
+        //}
     }
 }
 

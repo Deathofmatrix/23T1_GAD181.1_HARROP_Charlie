@@ -39,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.060259897, y: 0}
+  m_AnchoredPosition: {x: -0.084649906, y: 0}
   m_SizeDelta: {x: 3.2, y: 5.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1164894781669810322
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 2.6128495
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32443ef517767e4e89b160fabfdbcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMug: {fileID: 0}
+  mug: {fileID: 0}
   moveSpeed: 1
   slider: {fileID: 1164894781669810317}
 --- !u!70 &1164894781669810326
