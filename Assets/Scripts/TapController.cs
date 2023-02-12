@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,22 @@ namespace CharlieHarrop.BeerTapGame
 {
     public class TapController : MonoBehaviour
     {
-        [SerializeField] Mug mug;
+        [SerializeField] private Mug mug;
         [SerializeField] SpriteRenderer beerLine;
         private float tapSpeed = 2.5f;
         [SerializeField] private float fullness = 0;
+        [SerializeField] GameObject CurrentBeerTrigger;
+
+        [SerializeField] private List<Mug> mugList;
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             TapActivation();
+            FinishPour();
         }
 
-        void TapActivation()
+        private void TapActivation()
         {
             if (Input.GetButton("Jump"))
             {
@@ -30,6 +35,14 @@ namespace CharlieHarrop.BeerTapGame
             else
             {
                 beerLine.enabled = false;
+            }
+        }
+        private void FinishPour()
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Debug.Log("moving");
+                mug.MoveOffscreen();
             }
         }
     }
