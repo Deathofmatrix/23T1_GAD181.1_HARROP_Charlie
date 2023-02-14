@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mug
+  - CurrentMugTrigger
+  - MugDestroyer
   layers:
   - Default
   - TransparentFX

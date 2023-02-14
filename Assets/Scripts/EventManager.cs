@@ -3,21 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+namespace CharlieHarrop.BeerTapGame
 {
-    public static EventManager current;
-    public event Action OnEnterTrigger;
-
-    private void Awake()
+    public class EventManager : MonoBehaviour
     {
-        current = this;
-    }
+        //    public static EventManager current;
+        //    public event Action OnEnterTrigger;
 
-    public void MugCurrentTrigger()
-    {
-        if (OnEnterTrigger != null)
-        {
-            OnEnterTrigger();
-        }
+        //    private void Awake()
+        //    {
+        //        current = this;
+        //    }
+
+        //    public void MugCurrentTrigger()
+        //    {
+        //        if (OnEnterTrigger != null)
+        //        {
+        //            OnEnterTrigger();
+        //        }
+        //    }
     }
 }

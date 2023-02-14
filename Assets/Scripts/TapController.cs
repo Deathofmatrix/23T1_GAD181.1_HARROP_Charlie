@@ -7,31 +7,32 @@ namespace CharlieHarrop.BeerTapGame
 {
     public class TapController : MonoBehaviour
     {
-        [SerializeField] private Mug mug;
-        [SerializeField] private Mug currentMug;
-        [SerializeField] SpriteRenderer beerLine;
+        [SerializeField] private SpriteRenderer beerLine;
+        [SerializeField] private MugSpawnerController mugSpawnerController;
         private float tapSpeed = 2.5f;
         [SerializeField] private float fullness = 0;
-        [SerializeField] GameObject CurrentBeerTrigger;
-        [SerializeField] MugSpawnerController mugController;
         
 
         private void Update()
         {
-            
-            TapActivation();
-            //FinishPour();
+            if (GameManager.state == GameManager.GameState.Stationary || GameManager.state == GameManager.GameState.Pouring)
+            {
+                TapActivation();
+                Debug.Log(GameManager.state);
+            }
+
+            FinishPour();
         }
 
         private void TapActivation()
         {
             if (Input.GetButton("Jump"))
             {
-                currentMug = mug.GetCurrentMug();
+                GameManager.state = GameManager.GameState.Pouring;
                 beerLine.enabled = true;
                 Debug.Log("Pour Beer");
                 fullness += tapSpeed * Time.deltaTime;
-                currentMug.SetFullness(3);
+                CurrentMugManager.currentMug.SetFullness(fullness);
                 
             }
             else
@@ -39,13 +40,16 @@ namespace CharlieHarrop.BeerTapGame
                 beerLine.enabled = false;
             }
         }
-        //private void FinishPour()
-        //{
-        //    if (Input.GetKeyUp(KeyCode.Space))
-        //    {
-        //        Debug.Log("moving");
-        //    }
-        //}
+        private void FinishPour()
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Debug.Log("moving");
+                GameManager.state = GameManager.GameState.Moving;
+                Debug.Log(GameManager.state);
+                fullness = 0;
+            }
+        }
     }
 }
 

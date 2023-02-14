@@ -10,7 +10,6 @@ namespace CharlieHarrop.BeerTapGame
     public class Mug : MonoBehaviour
     {
         [SerializeField] public Mug mug;
-        [SerializeField] public static Mug currentMug;
 
         [SerializeField] private int moveSpeed;
         public Slider slider;
@@ -29,15 +28,18 @@ namespace CharlieHarrop.BeerTapGame
         public void OnTriggerEnter2D(Collider2D collider)
         {
             Debug.Log("entered");
-            //EventManager.current.OnEnterTrigger += SetCurrentMug;
-            GetCurrentMug();
-            
+            SetCurrentMug();
         }
-        public Mug GetCurrentMug()
+
+        public void SetCurrentMug()
         {
-            currentMug = this;
-            currentMug.name = "currentMug";
-            return currentMug;
+            CurrentMugManager.currentMug = this;
+            CurrentMugManager.currentMug.name = "currentMug";
+
+            if (CurrentMugManager.currentMug.transform.position.y == 2.413f)
+            {
+                GameManager.state = GameManager.GameState.Stationary;
+            }
         }
     }
 }
