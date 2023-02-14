@@ -15,7 +15,15 @@ namespace CharlieHarrop.BeerTapGame
 
         private void Update()
         {
-            if (GameManager.state == GameManager.GameState.Stationary || GameManager.state == GameManager.GameState.Pouring)
+            if (GameManager.state == GameManager.GameState.Stationary)
+            {
+                fullness = 0;
+                TapActivation();
+                Debug.Log(GameManager.state);
+                GameManager.state = GameManager.GameState.Pouring;
+            }
+
+            else if (GameManager.state == GameManager.GameState.Pouring)
             {
                 TapActivation();
                 Debug.Log(GameManager.state);
@@ -28,7 +36,6 @@ namespace CharlieHarrop.BeerTapGame
         {
             if (Input.GetButton("Jump"))
             {
-                GameManager.state = GameManager.GameState.Pouring;
                 beerLine.enabled = true;
                 Debug.Log("Pour Beer");
                 fullness += tapSpeed * Time.deltaTime;
@@ -44,10 +51,8 @@ namespace CharlieHarrop.BeerTapGame
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                Debug.Log("moving");
                 GameManager.state = GameManager.GameState.Moving;
                 Debug.Log(GameManager.state);
-                fullness = 0;
             }
         }
     }

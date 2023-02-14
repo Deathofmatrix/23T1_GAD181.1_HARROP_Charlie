@@ -24,7 +24,7 @@ namespace CharlieHarrop.BeerTapGame
             {
                 if (spawnedMug == false)
                 {
-                    CurrentMugManager.currentMug.SetFullness(0);
+                    //CurrentMugManager.currentMug.SetFullness(0);
                     newBeerMug = Instantiate(mugPrefab, transform.position, transform.rotation);
                     allMugs.Add(newBeerMug);
                     
@@ -41,7 +41,6 @@ namespace CharlieHarrop.BeerTapGame
         private void SpawnMugsStart()
         {
             CurrentMugManager.currentMug = Instantiate(mugPrefab, new Vector2(0.25f, -2.413f), transform.rotation);
-            CurrentMugManager.currentMug.SetFullness(0);
             newBeerMug = Instantiate(mugPrefab, new Vector2(3.25f, -2.413f), transform.rotation);
             allMugs.Add(newBeerMug);
             newBeerMug = Instantiate(mugPrefab, new Vector2(6.25f, -2.413f), transform.rotation);

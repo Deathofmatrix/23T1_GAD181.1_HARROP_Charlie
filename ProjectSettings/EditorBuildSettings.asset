@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/BeerMainScene.unity
+    guid: fb66b2be728120a4fb8364472c50312c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 284e22b13a6f9e0479b251c632e4cfcf
   m_configObjects: {}

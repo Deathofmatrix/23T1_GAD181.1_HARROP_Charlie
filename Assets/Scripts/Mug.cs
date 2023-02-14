@@ -9,8 +9,6 @@ namespace CharlieHarrop.BeerTapGame
 {
     public class Mug : MonoBehaviour
     {
-        [SerializeField] public Mug mug;
-
         [SerializeField] private int moveSpeed;
         public Slider slider;
         
@@ -23,6 +21,10 @@ namespace CharlieHarrop.BeerTapGame
         public void SetFullness(float fullness)
         {
             slider.value = fullness;
+        }
+        public float GetFullness()
+        {
+            return slider.value;
         }
         
         public void OnTriggerEnter2D(Collider2D collider)
