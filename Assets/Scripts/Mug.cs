@@ -27,19 +27,24 @@ namespace CharlieHarrop.BeerTapGame
         
         public void OnTriggerEnter2D(Collider2D collider)
         {
-            Debug.Log("entered");
-            SetCurrentMug();
+            if (collider.gameObject.CompareTag("CurrentMugTrigger"))
+            {
+                Debug.Log("entered");
+                SetCurrentMug();
+            }
+            if (collider.gameObject.CompareTag("MugDestroyer"))
+            {
+                Debug.Log("destroy");
+                Destroy(gameObject);
+            }
+            
         }
 
         public void SetCurrentMug()
         {
+            GameManager.state = GameManager.GameState.Stationary;
             CurrentMugManager.currentMug = this;
-            CurrentMugManager.currentMug.name = "currentMug";
-
-            if (CurrentMugManager.currentMug.transform.position.y == 2.413f)
-            {
-                GameManager.state = GameManager.GameState.Stationary;
-            }
+            CurrentMugManager.currentMug.name = "CurrentMug";
         }
     }
 }

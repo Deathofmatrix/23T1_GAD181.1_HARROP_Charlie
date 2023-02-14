@@ -9,7 +9,7 @@ namespace CharlieHarrop.BeerTapGame
     {
         [SerializeField] private SpriteRenderer beerLine;
         [SerializeField] private MugSpawnerController mugSpawnerController;
-        private float tapSpeed = 2.5f;
+        [SerializeField] private float tapSpeed;
         [SerializeField] private float fullness = 0;
         
 

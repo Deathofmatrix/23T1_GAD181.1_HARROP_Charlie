@@ -27,8 +27,7 @@ namespace CharlieHarrop.BeerTapGame
             if (GameManager.state == GameManager.GameState.Moving)
             {
                 if (CurrentMugManager.currentMug != null)
-                //CurrentMugManager.currentMug.transform.position += new Vector3(-1 * currentMugSpeed * Time.deltaTime, 0, 0);
-                //Destroy(CurrentMugManager.currentMug);
+                CurrentMugManager.currentMug.transform.position += new Vector3(-1 * currentMugSpeed * Time.deltaTime, 0, 0);
 
                 foreach (Mug mug in mugSpawnerController.allMugs)
                 {
